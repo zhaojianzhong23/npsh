@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# 更新时间 2025-07-28
+# 更新时间 2025-11-24
 
 # 定义颜色
 GREEN='\033[0;32m'
@@ -178,6 +178,7 @@ update_nodepassdash() {
     echo -e "${GREEN}正在临时运行 watchtower 容器进行更新...${NC}"
     $CONTAINER_CMD run --rm \
       -v /var/run/$CONTAINER_CMD.sock:/var/run/$CONTAINER_CMD.sock \
+      -e DOCKER_API_VERSION=1.44 \
       containrrr/watchtower \
       --run-once \
       --cleanup \
